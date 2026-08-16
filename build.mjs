@@ -50,7 +50,11 @@ rollup({
         }),
         devmode
             ? cleanup({ comments: 'none' })
-            : Minify({ format: { comments: false } }),
+            : Minify({
+                keep_fnames: true,
+                keep_classnames: true,
+                format: { comments: false }
+            }),
     ],
 })
     .then(async build => {
